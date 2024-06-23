@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { CartPage } from "../../pages/cart-page/CartPage";
-import { ProductListingPage } from "../../pages/product-listing-page/ProductListingPage";
+import { CartPage } from "../../../views/cart-page/CartPage";
+import { ProductListingPage } from "../../../views/product-listing-page/ProductListingPage";
 import { AuthenticatedPage } from "../authenticated-page/AuthenticatedPage";
 import { NavbarLayout } from "../layouts/navbar-layout/NavbarLayout";
 
