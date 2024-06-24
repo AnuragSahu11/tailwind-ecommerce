@@ -9,7 +9,7 @@ export const AppRouter = () => {
     <Routes>
       <Route element={<AuthenticatedPage />}>
         <Route element={<NavbarLayout />}>
-          <Route path="/products" element={<ProductListingPage />}></Route>
+          <Route path="/" element={<ProductListingPage />}></Route>
           <Route path="/cart" element={<CartPage />}></Route>
         </Route>
       </Route>
