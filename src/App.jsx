@@ -4,7 +4,7 @@ import { AppRouter } from "./components/general-components/app-router/AppRouter"
 function App() {
   return (
     <>
-      <AppRouter />;
+      <AppRouter />
     </>
   );
 }
