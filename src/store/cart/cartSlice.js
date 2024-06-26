@@ -11,6 +11,11 @@ export const cartSlice = createSlice({
     addToCart: ({ value }, { payload }) => {
       value.push({ ...payload, quantity: 1 });
     },
+    removeFromCart: ({ value }, { payload }) => {
+      const { id } = payload;
+      const selectedProductIndex = value.findIndex((item) => item.id === id);
+      value.splice(selectedProductIndex, 1);
+    },
     increaseQuantity: ({ value }, { payload }) => {
       const { id } = payload;
       const selectedProduct = value.find((item) => item.id === id);
@@ -30,7 +35,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity } =
+export const { addToCart, increaseQuantity, decreaseQuantity, removeFromCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

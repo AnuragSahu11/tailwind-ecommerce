@@ -10,7 +10,7 @@ const PAGE_SIZE = 9;
 export const ProductListingPage = () => {
   // * REDUX STORE
   const cart = useSelector((state) => state.cart.value);
-  
+
   // * QUERY
   const {
     isLoading,
