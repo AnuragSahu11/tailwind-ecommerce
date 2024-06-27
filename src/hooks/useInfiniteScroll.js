@@ -5,7 +5,8 @@ export const useInfiniteScroll = () => {
   const [reachedBottom, setReachedBottom] = useState(false);
 
   const detectPageBottom = () => {
-    if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+    console.log(window.scrollY, window.innerHeight, document.body.scrollHeight);
+    if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 5) {
       setReachedBottom(true);
     } else {
       setReachedBottom(false);
