@@ -4,6 +4,7 @@ import {
   increaseQuantity,
   removeFromCart,
 } from "../../../../store/cart/cartSlice";
+import ProductCardQuantityButton from "../../../pages/cart/cart-product-listing/ProductCardQuantityButton";
 
 export const CartProductCard = ({ productData }) => {
   const {
@@ -48,29 +49,12 @@ export const CartProductCard = ({ productData }) => {
           <p className="text-base font-black leading-none text-gray-800">
             {title}
           </p>
-          <div className=" justify-evenly gap-1 hidden  md:flex">
-            <button
-              onClick={onAddToCartClick}
-              className="block  select-none rounded-lg bg-slate-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-            >
-              +
-            </button>
-            <button
-              disabled
-              className="block   select-none rounded-lg bg-slate-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-            >
-              {quantity}
-            </button>
-            <button
-              onClick={onDecreaseQuantityClick}
-              className="block  select-none rounded-lg bg-slate-100	 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-            >
-              -
-            </button>
-          </div>
+          <ProductCardQuantityButton
+            extraStyle={"hidden md:flex"}
+            onAddToCartClick={onAddToCartClick}
+            quantity={quantity}
+            onDecreaseQuantityClick={onDecreaseQuantityClick}
+          />
         </div>
         <p className="text-xs leading-3 text-gray-600 pt-2">{brand}</p>
         <p className="text-xs leading-3 text-gray-600 py-4">
@@ -92,29 +76,12 @@ export const CartProductCard = ({ productData }) => {
             ${price}
           </p>
         </div>
-        <div className="flex justify-center md:hidden gap-1 mt-5 flex-row">
-          <button
-            onClick={onAddToCartClick}
-            className="block  select-none rounded-lg bg-slate-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            +
-          </button>
-          <button
-            disabled
-            className="block   select-none rounded-lg bg-slate-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            {quantity}
-          </button>
-          <button
-            onClick={onDecreaseQuantityClick}
-            className="block  select-none rounded-lg bg-slate-100	 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            -
-          </button>
-        </div>
+        <ProductCardQuantityButton
+          extraStyle={"md:hidden flex-row"}
+          onAddToCartClick={onAddToCartClick}
+          quantity={quantity}
+          onDecreaseQuantityClick={onDecreaseQuantityClick}
+        />
       </div>
     </div>
   );

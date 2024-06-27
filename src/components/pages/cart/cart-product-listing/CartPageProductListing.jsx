@@ -3,9 +3,11 @@ import { CartProductCard } from "../../../general-components/cards/cart-product-
 import { NavLink } from "react-router-dom";
 
 export const CartProductListing = () => {
+  // * REDUX
   const cart = useSelector((state) => state.cart.value);
-  const pageSubHeading =
-    cart.length > 0 ? `${cart.length} Items` : "Please Add Items to Cart";
+
+  // * VARIABLES
+  const pageSubHeading = cart.length > 0 ? `${cart.length} Items` : "";
 
   return (
     <div className="w-full h-full	md:overflow-y-auto	sm:w-3/4 bg-white px-10 py-10 ">

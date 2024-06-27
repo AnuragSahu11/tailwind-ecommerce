@@ -1,32 +1,21 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useSelector } from "react-redux";
-import { ProductListingCardShimmer } from "../../components/general-components/shimmer/product-listing-card/productListingCardShimmer";
-import { getProductsData } from "../../utils/product-listing-utils";
-import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
-import { ProductListingCard } from "../../components/general-components/cards/product-listing-card/ProductListingCard";
 import { useEffect } from "react";
+import { ProductListingCard } from "../../components/general-components/cards/product-listing-card/ProductListingCard";
+import { ProductListingCardShimmer } from "../../components/general-components/shimmer/product-listing-card/productListingCardShimmer";
+import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
+import { getProductsData } from "../../utils/product-listing-utils";
 const PAGE_SIZE = 9;
 
 export const ProductListingPage = () => {
-  // * REDUX STORE
-  const cart = useSelector((state) => state.cart.value);
-
   // * QUERY
-  const {
-    isLoading,
-    isError,
-    error,
-    data,
-    fetchNextPage,
-    isFetching,
-    hasNextPage,
-  } = useInfiniteQuery({
-    queryKey: ["products"],
-    queryFn: ({ pageParam }) => getProductsData(pageParam, PAGE_SIZE),
-    initialPageParam: 0,
-    getNextPageParam: (lastPage) =>
-      lastPage.limit > 0 ? lastPage.skip : undefined,
-  });
+  const { isLoading, data, fetchNextPage, isFetching, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: ["products"],
+      queryFn: ({ pageParam }) => getProductsData(pageParam, PAGE_SIZE),
+      initialPageParam: 0,
+      getNextPageParam: (lastPage) =>
+        lastPage.limit > 0 ? lastPage.skip : undefined,
+    });
 
   // * CUSTOM HOOK
   const reachedPageBottom = useInfiniteScroll();
