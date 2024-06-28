@@ -1,12 +1,12 @@
-Built this project as a task for My Indiaa
+###### Built this project as a task for My Indiaa
 
-Tech Stack
+##### Tech Stack
 
 - React
 - Redux
 - Tailwind
 
-Features
+##### Features
 
 - PWA
 - Infinite Scroll use React-Query
