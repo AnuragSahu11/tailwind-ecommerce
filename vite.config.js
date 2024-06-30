@@ -6,5 +6,11 @@ import manifestForPlugin from "./manifest.json";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
-  plugins: [react(), VitePWA(manifestForPlugin)],
+  plugins: [
+    react(),
+    VitePWA({
+      ...manifestForPlugin,
+      injectManifest: { injectionPoint: undefined },
+    }),
+  ],
 });
