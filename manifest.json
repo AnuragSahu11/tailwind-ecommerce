@@ -1,4 +1,11 @@
 {
+  "srcDir": "src",
+  "filename": "service-worker.js",
+  "globPatterns": ["**/*.{js,css,html,ico,png,svg}"],
+  "strategies": "injectManifest",
+  "devOptions": {
+    "enabled": true
+  },
   "registerType": "prompt",
   "includeAssets": ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
   "manifest": {
