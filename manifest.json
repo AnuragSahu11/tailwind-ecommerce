@@ -3,6 +3,7 @@
   "filename": "service-worker.js",
   "globPatterns": ["**/*.{js,css,html,ico,png,svg}"],
   "strategies": "injectManifest",
+  "injectManifest": { "injectionPoint": undefined },
   "devOptions": {
     "enabled": true
   },
